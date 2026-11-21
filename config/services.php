@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'evening_hour' => [
+        'app_uuid' => env('EVENING_HOUR_APP_UUID'),
+        'url' => env('EVENING_HOUR_URL'),
+        'ticket_secret' => env('EVENING_HOUR_TICKET_SECRET'),
+    ],
 
     /*
     |--------------------------------------------------------------------------

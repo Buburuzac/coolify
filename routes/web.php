@@ -15,6 +15,7 @@ use App\Http\Controllers\Api\ServicesController;
 use App\Http\Controllers\Api\SharedVariableCanvasController;
 use App\Http\Controllers\Api\TagCanvasController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\EveningHourLaunchController;
 use App\Http\Controllers\FileBrowserDownloadController;
 use App\Http\Controllers\ImageScanSbomController;
 use App\Http\Controllers\OauthController;
@@ -199,6 +200,8 @@ if (app()->environment(['local', 'testing'])) {
 }
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/portal/apps/evening-hour/launch', EveningHourLaunchController::class)
+        ->name('evening-hour.launch');
     Route::middleware(['throttle:force-password-reset'])->group(function () {
         Route::get('/force-password-reset', ForcePasswordReset::class)->name('auth.force-password-reset');
     });
